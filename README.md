@@ -5,8 +5,6 @@
 
 First, install [Yeoman](http://yeoman.io) and generator-cf-node-server using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
-npm install -g generator-cf-node-server
-
 ```bash
 npm install -g yo
 cd generator-cf-node-server
