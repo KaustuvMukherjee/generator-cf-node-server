@@ -1,0 +1,41 @@
+{
+  "name": "generator-cf-node-server",
+  "version": "0.0.0",
+  "description": "Yeoman generator plugin for NodeJS micro-service scaffolding on Cloud Foundry.",
+  "homepage": "https://github.com/KaustuvMukherjee/generator-cf-node-server.git",
+  "author": {
+    "name": "Kaustuv Mukherjee",
+    "email": "kaustuvmukherjee@hotmail.com",
+    "url": ""
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "cf-node-server",
+    "cloud foundry",
+    "micro-service",
+    "yeoman-generator"
+  ],
+  "devDependencies": {
+    "yeoman-test": "^1.7.0",
+    "yeoman-assert": "^3.1.0",
+    "eslint": "^5.4.0"
+  },
+  "engines": {
+    "npm": ">= 4.0.0"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "handlebars": "^4.0.12",
+    "yeoman-generator": "^2.0.1",
+    "yosay": "^2.0.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {},
+  "repository": "https://github.com/KaustuvMukherjee/generator-cf-node-server.git",
+  "license": "MIT"
+}
