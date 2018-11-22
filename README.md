@@ -1,1 +1,0 @@
-# generator-cf-node-server
