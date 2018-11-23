@@ -22,6 +22,7 @@
     "eslint": "^5.4.0",
     "husky": "^1.2.0",
     "lint-staged": "^8.1.0",
+    "prettier": "^1.15.2",
     "yeoman-assert": "^3.1.0",
     "yeoman-test": "^1.7.0"
   },
@@ -41,6 +42,10 @@
   "lint-staged": {
     "*.js": [
       "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
       "git add"
     ]
   },
