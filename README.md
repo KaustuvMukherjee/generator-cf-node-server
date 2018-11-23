@@ -1,4 +1,4 @@
-# generator-cf-node-server [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-cf-node-server
 > Yeoman generator plugin for NodeJS micro-service scaffolding on Cloud Foundry.
 
 ## Installation steps:
@@ -8,10 +8,11 @@
 ```bash
 npm install -g yo
 ```
-- Download or clone generator-cf-node-server and change directory to generator-cf-node-server
+- Download or clone generator-cf-node-server and change directory to generator-cf-node-server. Run npm install.
 
 ```bash
 cd generator-cf-node-server
+npm i
 ```
 
 - Use npm link to link the generator in the global node modules.
