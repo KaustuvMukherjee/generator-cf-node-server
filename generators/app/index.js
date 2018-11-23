@@ -15,6 +15,8 @@ function initialize () {
     global.appData.nodeDependencies.push('body-parser')
     global.appData.nodeDependencies.push('express')
     global.appData.nodeDependencies.push('morgan')
+    global.appData.nodeDependencies.push('husky')
+    global.appData.nodeDependencies.push('lint-staged')
 }
 
 module.exports = class extends Generator {

@@ -12,5 +12,16 @@
   "engines": {
     "node": ">= 8.9.4",
     "npm": ">= 6.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
