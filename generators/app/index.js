@@ -17,6 +17,7 @@ function initialize () {
     global.appData.nodeDependencies.push('morgan')
     global.appData.nodeDependencies.push('husky')
     global.appData.nodeDependencies.push('lint-staged')
+    global.appData.nodeDependencies.push('prettier')
 }
 
 module.exports = class extends Generator {
