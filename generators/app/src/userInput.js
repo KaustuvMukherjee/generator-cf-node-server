@@ -14,8 +14,8 @@ class UserInput {
         })
     }
     static greetUser () {
-        this.log(
-            yosay(`Welcome to the riveting ${chalk.red('generator-sample')} generator!`)
+        console.log(
+            yosay(`Welcome to ${chalk.red.bold('cf-node-server')} generator! by: ${chalk.yellow.bold('Kaustuv Mukherjee')}`, {maxLength: 36})
         )
     }
     static async getProjectType() {
@@ -102,6 +102,7 @@ class UserInput {
     }
     static async handleUserInputs() {
         try {
+            UserInput.greetUser()
             await UserInput.getProjectType()
             await UserInput.getProjectName()
             await UserInput.getVersion()
