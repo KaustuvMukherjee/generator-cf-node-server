@@ -19,12 +19,15 @@
     "yeoman-generator"
   ],
   "devDependencies": {
-    "yeoman-test": "^1.7.0",
+    "eslint": "^5.4.0",
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.0",
     "yeoman-assert": "^3.1.0",
-    "eslint": "^5.4.0"
+    "yeoman-test": "^1.7.0"
   },
   "engines": {
-    "npm": ">= 4.0.0"
+    "node": ">= 8.9.4",
+    "npm": ">= 6.2.0"
   },
   "dependencies": {
     "chalk": "^2.1.0",
@@ -35,7 +38,20 @@
   "jest": {
     "testEnvironment": "node"
   },
-  "scripts": {},
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "scripts": {
+    "lint": "eslint --fix ./generators/**/*.js ./generators/app/**/*.js"
+  },
   "repository": "https://github.com/KaustuvMukherjee/generator-cf-node-server.git",
   "license": "MIT"
 }

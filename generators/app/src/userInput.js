@@ -1,5 +1,7 @@
 'use strict'
 const fs = require('fs')
+const chalk = require('chalk')
+const yosay = require('yosay')
 var PROJECT_TYPES = fs.readdirSync(`${__dirname.replace('/src', '')}/templates`)
 
 class UserInput {
@@ -10,6 +12,11 @@ class UserInput {
             }
             return true
         })
+    }
+    static greetUser () {
+        this.log(
+            yosay(`Welcome to the riveting ${chalk.red('generator-sample')} generator!`)
+        )
     }
     static async getProjectType() {
         UserInput.refineProjectTypes()

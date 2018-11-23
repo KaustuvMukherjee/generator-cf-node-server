@@ -7,40 +7,40 @@ const userInput = require('./src/userInput')
 const update = require('./src/update')
 
 function initialize () {
-  global.continue = true
-  global.appData = {}
-  global.appData.userInputs = {}
+    global.continue = true
+    global.appData = {}
+    global.appData.userInputs = {}
 
-  global.appData.nodeDependencies = []
-  global.appData.nodeDependencies.push('body-parser')
-  global.appData.nodeDependencies.push('express')
-  global.appData.nodeDependencies.push('morgan')
+    global.appData.nodeDependencies = []
+    global.appData.nodeDependencies.push('body-parser')
+    global.appData.nodeDependencies.push('express')
+    global.appData.nodeDependencies.push('morgan')
 }
 
 module.exports = class extends Generator {
 
-  async prompting() {
-    initialize()
-    global.appData.generator = this
-    return await userInput.handleUserInputs()
-  }
-  writing() {
-    if(global.continue === false) {
-      return
+    async prompting() {
+        initialize()
+        global.appData.generator = this
+        return await userInput.handleUserInputs()
     }
-    if(global.appData.userInputs.projectType.val) {
-      if(global.appData.userInputs.projectName.val) {
-        skeleton.generate()
-        update.packageJSON()
-        update.manifestYAML()
-      }
+    writing() {
+        if(global.continue === false) {
+            return
+        }
+        if(global.appData.userInputs.projectType.val) {
+            if(global.appData.userInputs.projectName.val) {
+                skeleton.generate()
+                update.packageJSON()
+                update.manifestYAML()
+            }
+        }
     }
-  }
-  install() {
-    if(global.continue === false) {
-      return
+    install() {
+        if(global.continue === false) {
+            return
+        }
+        process.chdir(global.appData.userInputs.projectName.val)
+        this.npmInstall(global.appData.nodeDependencies, {'save': true})
     }
-    process.chdir(global.appData.userInputs.projectName.val)
-    this.npmInstall(global.appData.nodeDependencies, {'save': true})
-  }
 }
