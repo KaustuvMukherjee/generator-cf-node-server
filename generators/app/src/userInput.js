@@ -26,7 +26,7 @@ class UserInput {
                 name: 'val',
                 message: 'Enter project type: ',
                 choices: PROJECT_TYPES,
-                default: 'none'
+                default: 'node-express'
             }
         ]
         global.appData.userInputs.projectType = await UserInput.getFromUser(prompts)

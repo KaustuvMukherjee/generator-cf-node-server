@@ -11,7 +11,6 @@ class Update {
         packageJSON.version = `${global.appData.userInputs.version.val}`
         packageJSON.description = `${global.appData.userInputs.description.val}`
         packageJSON.author = `${global.appData.userInputs.author.val} <${global.appData.userInputs.email.val}>`
-        console.log(packageJSON)
         fs.unlinkSync(packageJSONPath)
         fs.writeFileSync(packageJSONPath, JSON.stringify(packageJSON))
     }

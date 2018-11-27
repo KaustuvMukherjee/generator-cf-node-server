@@ -5,6 +5,7 @@ const yosay = require('yosay')
 const skeleton = require('./src/skeleton')
 const userInput = require('./src/userInput')
 const update = require('./src/update')
+const CURR_DIR = process.cwd()
 
 function initialize () {
     global.continue = true
@@ -44,7 +45,8 @@ module.exports = class extends Generator {
         if(global.continue === false) {
             return
         }
-        process.chdir(global.appData.userInputs.projectName.val)
+        var npmdDirectory = `${CURR_DIR}/${global.appData.userInputs.projectName.val}`
+        process.chdir(npmdDirectory)
         if(global.appData.nodeDependencies.length > 0) {
             this.npmInstall(global.appData.nodeDependencies, {'save': true})
         }
