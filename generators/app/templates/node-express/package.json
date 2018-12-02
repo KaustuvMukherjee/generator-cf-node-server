@@ -1,13 +1,16 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
+  "name": "node-express-server-1.0.0",
+  "version": "1.0.0",
+  "description": "Basic node-express server.",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --fix src/**/*.js __tests__/* ./app.js ./index.js",
+    "stub": "node $NODE_DEBUG_OPTION ./src/openAPI/generateStub.js | npm run lint",
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "local-start": "node $NODE_DEBUG_OPTION index.js",
+    "test": "jest"
   },
-  "author": "",
+  "author": "Your name <abc@xyz.com>",
   "license": "UNLICENSED",
   "engines": {
     "node": ">= 8.9.4",
@@ -15,7 +18,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run test && lint-staged"
     }
   },
   "lint-staged": {
@@ -27,5 +30,16 @@
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/controllers/*.js",
+      "src/routers/*.js",
+      "src/services/*.js"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {}
 }

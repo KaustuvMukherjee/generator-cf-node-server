@@ -1,59 +1,65 @@
-const path = require('path');
-const fs = require('fs');
-const controllerPath = path.join(__dirname, 'controllers').replace('/routers', '');
-const routesJSON = require('./routes.json');
-const HTTP_METHODS = ['get', 'post', 'put', 'delete'];
+const path = require('path')
+const fs = require('fs')
+const controllerPath = path.join(__dirname, 'controllers').replace('/routers', '')
+const apiDefinition = require('../../apiDefinition/openapi')
+const HTTP_METHODS = ['get', 'post', 'put', 'delete']
 
 const loadRoutesConfig = () => {
-    let arrConfig = [];
-    for (const path in routesJSON.routes) {
-        const route = routesJSON.routes[path];
-        const methods = Object.keys(route).filter((key) => HTTP_METHODS.includes(key));
+    let arrConfig = []
+    for (const path in apiDefinition.paths) {
+        const route = apiDefinition.paths[path]
+        const methods = Object.keys(route).filter((key) => HTTP_METHODS.includes(key))
         methods.forEach((method) => {
+            let handlers = []
+            let methodImplInfo = route[method]
+            if('x-validationOperationId' in methodImplInfo) {
+                handlers.push(methodImplInfo['x-validationOperationId'])
+            }
+            handlers.push(methodImplInfo.operationId)
             arrConfig.push({
                 path: path,
                 method: method,
-                controller: route.controller,
-                handlers: route[method]
-            });
-        });
+                controller: methodImplInfo['x-controller'],
+                handlers: handlers
+            })
+        })
     }
-    return arrConfig;
-};
+    return arrConfig
+}
 
 const loadControllers = (app) => {
     app.controllers = {}
-    console.log(controllerPath);
+    console.log(controllerPath)
     fs.readdirSync(controllerPath).forEach((fileName) => {
-        if(fileName.indexOf("Controller") > -1) {
-            let controllerName = fileName.replace('.js', '');
-            const Controller = require('../controllers/' + controllerName);
+        if(fileName.indexOf('.DS_Store') <= -1) {
+            let controllerName = fileName.replace('.js', '')
+            const Controller = require('../controllers/' + controllerName)
             app.controllers[controllerName] = Controller
         }
     })
-};
+}
 
 const bindRouteToController = (controller, handler) => {
     return(async (req, res, next) => {
-        await controller[handler](req, res, next);
-    });
-};
+        await controller[handler](req, res, next)
+    })
+}
 
 const bindRoutes = (app) => {
-    loadControllers(app);
+    loadControllers(app)
     loadRoutesConfig().forEach((route) => {
         route.handlers.forEach((handler) => {
-            app[route.method](route.path, bindRouteToController(app.controllers[route.controller], handler));
-        });
+            app[route.method](route.path, bindRouteToController(app.controllers[route.controller], handler))
+        })
     })
-};
+}
 
 class Router {
     static mountRoutes (app) {
-        bindRoutes(app);
+        bindRoutes(app)
     }
-};
+}
 
-module.exports = Router;
+module.exports = Router
 
 

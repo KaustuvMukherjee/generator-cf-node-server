@@ -57,7 +57,7 @@
     }
   },
   "scripts": {
-    "lint": "eslint --fix ./**/*.js",
+    "lint": "eslint --fix ./**/*.js ./generators/app/*.js",
     "test": "jest"
   },
   "repository": "https://github.com/KaustuvMukherjee/generator-cf-node-server.git",

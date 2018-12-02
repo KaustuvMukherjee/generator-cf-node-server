@@ -1,14 +1,14 @@
 const HealthService = require('../services/healthService')
 
 class HealthController {
-    static validateReq(req, res, next) {
-        console.log("HealthController.validateReq called...");
-        next('route');
+    static validateHealthRequest(req, res, next) {
+        console.log('HealthController.validateHealthRequest called...')
+        next('route')
     }
-    static processRequest(req, res, next) {
-        console.log("HealthController.processRequest called...");
-        res.status(200).send(HealthService.up());
+    static getHealth(req, res, next) {
+        console.log('HealthController.getHealth called...')
+        res.status(200).send(HealthService.up())
     }
-};
+}
 
 module.exports = HealthController

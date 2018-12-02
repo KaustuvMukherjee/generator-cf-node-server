@@ -17,9 +17,15 @@ function initialize () {
     global.appData.nodeDependencies.push('body-parser')
     global.appData.nodeDependencies.push('express')
     global.appData.nodeDependencies.push('morgan')
+    global.appData.nodeDevDependencies.push('directory-exists')
+    global.appData.nodeDevDependencies.push('eslint')
+    global.appData.nodeDevDependencies.push('file-exists')
     global.appData.nodeDevDependencies.push('husky')
+    global.appData.nodeDevDependencies.push('jest')
     global.appData.nodeDevDependencies.push('lint-staged')
     global.appData.nodeDevDependencies.push('prettier')
+    global.appData.nodeDevDependencies.push('supertest')
+    global.appData.nodeDevDependencies.push('swagger-parser')
 }
 
 module.exports = class extends Generator {

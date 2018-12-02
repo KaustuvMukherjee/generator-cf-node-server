@@ -1,28 +1,30 @@
-
-const http = require('http');
-const Router = require('./src/routers/router.js');
-const Middleware = require('./src/middlewares/middleware.js');
+const Router = require('./src/routers/router.js')
+const Middleware = require('./src/middlewares/middleware.js')
 
 /*
-    Class - Application
+ * Class - Application
  */
 
-const HTTP_PORT = 3000;
+const HTTP_PORT = 3000
 
 class Application {
+
     static run(app) {
         // Mount Middlewares
-        Middleware.initialize(app);
+        Middleware.initialize(app)
 
         // Mount Routes
-        Router.mountRoutes(app);
+        Router.mountRoutes(app)
 
         // Create HTTP server
-        http.createServer(app).listen(process.env.PORT || 3000, () => {
-            console.log(`HTTPS server started at port ${process.env.PORT || 3000}`);
-        });
+        global.server = app.listen(process.env.PORT || 3000, () => {
+            console.log(`HTTPS server started at port ${process.env.PORT || 3000}`)
+        })
+    }
 
+    static close() {
+        global.server.close()
     }
 }
 
-module.exports = Application;
+module.exports = Application

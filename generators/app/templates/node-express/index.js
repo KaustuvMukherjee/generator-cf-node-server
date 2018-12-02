@@ -1,19 +1,18 @@
 /*
-
  */
 
-const ProcessListener = require('./src/listeners/processListener.js');
-const Application = require('./app.js');
-const express = require('express');
-const app = module.exports = express();
+const process = require('./src/listeners/processListener.js')
+const application = require('./app.js')
+const express = require('express')
+const app = module.exports = express()
 
 
 /*
-    Listen to the process events.
+ * Listen to the process events.
  */
-ProcessListener.listen();
+process.listen()
 
 /*
-    Run the application.
+ * Run the application.
  */
-Application.run(app);
+application.run(app)

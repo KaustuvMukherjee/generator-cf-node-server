@@ -1,8 +1,0 @@
-{
-  "routes": {
-    "/health": {
-      "controller": "healthController",
-      "get": ["validateReq", "processRequest"]
-    }
-  }
-}
