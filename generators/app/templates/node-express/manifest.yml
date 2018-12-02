@@ -1,7 +1,7 @@
 ---
 applications:
-- name: node-express-server-1.0.0
-  host: node-express-server
+- name: {{PROJECT_NAME}}
+  host: {{HOST}}
   memory: 512MB
   health-check-type: http
   health-check-http-endpoint: /health

@@ -22,7 +22,6 @@ class Update {
         let manifestYMLPath = `${CURR_DIR}/${global.appData.userInputs.projectName.val}/manifest.yml`
         const sourceManifest = fs.readFileSync(manifestYMLPath).toString()
         const template = handleBars.compile(sourceManifest)
-        // const manifestYML = template({PROJECT_NAME: name, HOST: host, BUILDPACK: buildpack, SERVICES: services})
         const manifestYML = template({PROJECT_NAME: name, HOST: host})
 
         fs.unlinkSync(manifestYMLPath)
