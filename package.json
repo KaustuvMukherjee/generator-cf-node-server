@@ -39,7 +39,8 @@
     "yosay": "^2.0.1"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testRegex": "test/app.js"
   },
   "lint-staged": {
     "*.js": [
