@@ -6,7 +6,7 @@ var PROJECT_TYPES = fs.readdirSync(`${__dirname.replace('/src', '')}/templates`)
 
 class UserInput {
     static refineProjectTypes() {
-        PROJECT_TYPES = PROJECT_TYPES.filter(function(value, index, arr){
+        PROJECT_TYPES = PROJECT_TYPES.filter(function(value, index, arr) {
             if(value === '.DS_Store') {
                 return false
             }
@@ -97,6 +97,28 @@ class UserInput {
         ]
         global.appData.userInputs.buildpack = await UserInput.getFromUser(prompts)
     }
+    static async getNodeVersion() {
+        const prompts = [
+            {
+                type: 'input',
+                name: 'val',
+                message: 'Enter node version: ',
+                default: '8.9.4'
+            }
+        ]
+        global.appData.userInputs.node = await UserInput.getFromUser(prompts)
+    }
+    static async getNPMVersion() {
+        const prompts = [
+            {
+                type: 'input',
+                name: 'val',
+                message: 'Enter npm version: ',
+                default: '6.2.0'
+            }
+        ]
+        global.appData.userInputs.npm = await UserInput.getFromUser(prompts)
+    }
     static async getFromUser(prompts) {
         return await global.appData.generator.prompt(prompts)
     }
@@ -109,6 +131,8 @@ class UserInput {
             await UserInput.getDescription()
             await UserInput.getAuthor()
             await UserInput.getEmail()
+            await UserInput.getNodeVersion()
+            await UserInput.getNPMVersion()
         } catch(ex) {
             console.log(ex)
         }

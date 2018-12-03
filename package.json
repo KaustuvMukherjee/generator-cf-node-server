@@ -29,8 +29,8 @@
     "yeoman-test": "^1.7.0"
   },
   "engines": {
-    "node": ">= 8.9.4",
-    "npm": ">= 6.2.0"
+    "node": "8.9.4",
+    "npm": "6.2.0"
   },
   "dependencies": {
     "chalk": "^2.1.0",
@@ -63,7 +63,7 @@
     }
   },
   "scripts": {
-    "lint": "eslint --fix ./**/*.js ./generators/app/*.js",
+    "lint": "eslint --fix .",
     "test": "jest"
   },
   "repository": "https://github.com/KaustuvMukherjee/generator-cf-node-server.git",

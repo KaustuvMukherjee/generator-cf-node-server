@@ -4,7 +4,7 @@
   "description": "Basic node-express server.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint --fix src/**/*.js __tests__/* ./app.js ./index.js",
+    "lint": "eslint --fix .",
     "stub": "node $NODE_DEBUG_OPTION ./src/openAPI/generateStub.js | npm run lint",
     "start": "node index.js",
     "local-start": "node $NODE_DEBUG_OPTION index.js",

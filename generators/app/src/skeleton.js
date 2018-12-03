@@ -3,7 +3,7 @@ const fs = require('fs')
 const CURR_DIR = process.cwd()
 
 class Skeleton {
-    static generate(){
+    static generate() {
         // Check if the project alreday exists, if yes don't proceed
         if(fs.existsSync(`${CURR_DIR}/${global.appData.userInputs.projectName.val}`)) {
             console.log(`Project '${global.appData.userInputs.projectName.val}' already exists. Cannot proceed!!`)

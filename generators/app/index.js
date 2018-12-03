@@ -47,7 +47,7 @@ module.exports = class extends Generator {
             }
         }
     }
-    async install() {
+    install() {
         if(global.continue === false) {
             return
         }
