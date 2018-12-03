@@ -6,9 +6,9 @@ const rimraf = require('rimraf')
 const CURR_DIR = process.cwd()
 
 const testDir = 'test'
-const TIMEOUT = 300000
+const TIMEOUT = 60000
 
-describe('generator-cf-node-server:app', () => { 
+describe('generator-cf-node-server:app', () => {
     beforeAll(() => {
         return helpers
             .run(path.join(__dirname, '../generators/app'))
