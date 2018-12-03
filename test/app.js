@@ -5,7 +5,7 @@ const helpers = require('yeoman-test')
 const rimraf = require('rimraf')
 const CURR_DIR = process.cwd()
 
-const testDir = "test"
+const testDir = 'test'
 const TIMEOUT = 300000
 
 describe('generator-cf-node-server:app', () => {
@@ -19,7 +19,7 @@ describe('generator-cf-node-server:app', () => {
     it('Verifying files at /', () => {
         let targetDirectory = `${CURR_DIR}/${testDir}/tmp/${global.appData.userInputs.projectName.val}`
         assert.file([`${targetDirectory}/app.js`,
-            `${targetDirectory}/index1.js`,
+            `${targetDirectory}/index.js`,
             `${targetDirectory}/manifest.yml`,
             `${targetDirectory}/package.json`])
     })
@@ -55,10 +55,10 @@ describe('generator-cf-node-server:app', () => {
         assert.file([`${targetDirectory}/healthService.js`])
     })
 
-    afterAll(() => {
-        let targetDirectory = `${CURR_DIR}/${testDir}/tmp`
-        rimraf(targetDirectory, () => {
-        })
-    }, TIMEOUT)
+    // afterAll(() => {
+    //     let targetDirectory = `${CURR_DIR}/${testDir}/tmp`
+    //     rimraf(targetDirectory, () => {
+    //     })
+    // }, TIMEOUT)
 
 })
