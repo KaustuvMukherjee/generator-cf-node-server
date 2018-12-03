@@ -19,7 +19,7 @@ describe('generator-cf-node-server:app', () => {
     it('Verifying files at /', () => {
         let targetDirectory = `${CURR_DIR}/${testDir}/tmp/${global.appData.userInputs.projectName.val}`
         assert.file([`${targetDirectory}/app.js`,
-            `${targetDirectory}/index.js`,
+            `${targetDirectory}/index1.js`,
             `${targetDirectory}/manifest.yml`,
             `${targetDirectory}/package.json`])
     })
