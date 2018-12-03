@@ -40,7 +40,12 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "testRegex": "test/app.js"
+    "testRegex": "test/app.js",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "generators/app/src/skeleton.js",
+      "generators/app/src/update.js"
+    ]
   },
   "lint-staged": {
     "*.js": [

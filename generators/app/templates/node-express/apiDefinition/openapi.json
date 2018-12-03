@@ -23,10 +23,6 @@
                     "status": {
                       "type": "string",
                       "example": "UP"
-                    },
-                    "lastUpdatedAt": {
-                      "type": "string",
-                      "format": "date"
                     }
                   }
                 }
