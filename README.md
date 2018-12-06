@@ -21,11 +21,17 @@ npm i
 npm link
 ```
 
-- Finally generate your new project:
+- Finally provide the necessary inputs to generate your NodeJS micro-service scaffolding.
 
 ```bash
 yo cf-node-server
 ```
+
+## Highlights of the micro-service scaffolding project:
+- Supports OpenAPI Specification V3.
+- Provides out-of-the box '/health' API.
+- Provides sample get, put, post request based on OpenAPI Specification V3.
+- Auto generates stubs (controller & service classes) based on Open API Specification V3.
 
 ## Getting To Know Yeoman
 
