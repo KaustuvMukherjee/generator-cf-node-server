@@ -6,7 +6,7 @@ const rimraf = require('rimraf')
 const CURR_DIR = process.cwd()
 
 const testDir = 'test'
-const TIMEOUT = 60000
+const TIMEOUT = 20000
 
 describe('generator-cf-node-server:app', () => {
     beforeAll(() => {
@@ -55,10 +55,10 @@ describe('generator-cf-node-server:app', () => {
         assert.file([`${targetDirectory}/healthService.js`])
     })
 
-    // afterAll(() => {
-    //     let targetDirectory = `${CURR_DIR}/${testDir}/tmp`
-    //     rimraf(targetDirectory, () => {
-    //     })
-    // }, TIMEOUT)
+    afterAll(() => {
+        let targetDirectory = `${CURR_DIR}/${testDir}/tmp`
+        rimraf(targetDirectory, () => {
+        })
+    }, TIMEOUT)
 
 })

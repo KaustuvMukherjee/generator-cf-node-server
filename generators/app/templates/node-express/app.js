@@ -1,3 +1,8 @@
+/*
+ * Class - Application
+ */
+'use strict'
+const winston = require('./src/config/winston')
 const Router = require('./src/routers/router.js')
 const Middleware = require('./src/middlewares/middleware.js')
 
@@ -10,7 +15,7 @@ const HTTP_PORT = 3000
 class Application {
 
     static run(app) {
-        // Mount Middlewares
+    // Mount Middlewares
         Middleware.initialize(app)
 
         // Mount Routes
@@ -18,7 +23,7 @@ class Application {
 
         // Create HTTP server
         global.server = app.listen(process.env.PORT || 3000, () => {
-            console.log(`HTTPS server started at port ${process.env.PORT || 3000}`)
+            winston.info(`HTTPS server started at port ${process.env.PORT || 3000}`)
         })
     }
 

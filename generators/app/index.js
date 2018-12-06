@@ -1,4 +1,8 @@
+/*
+ *
+ */
 'use strict'
+const winston = require('./src/winston')
 const Generator = require('yeoman-generator')
 const chalk = require('chalk')
 const yosay = require('yosay')
@@ -17,6 +21,8 @@ function initialize () {
     global.appData.nodeDependencies.push('body-parser')
     global.appData.nodeDependencies.push('express')
     global.appData.nodeDependencies.push('morgan')
+    global.appData.nodeDependencies.push('winston')
+    //
     global.appData.nodeDevDependencies.push('directory-exists')
     global.appData.nodeDevDependencies.push('eslint')
     global.appData.nodeDevDependencies.push('file-exists')

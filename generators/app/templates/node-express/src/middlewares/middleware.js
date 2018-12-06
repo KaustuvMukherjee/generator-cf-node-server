@@ -1,12 +1,15 @@
+/*
+ * Class - Middleware
+ */
+const winston = require('../config/winston')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 
 class Middleware {
     static initialize(app) {
-        console.log('Initializing middlewares.....')
-        app.use(morgan('tiny'))
+        app.use(morgan('tiny', { stream: winston.infoStream }))
         app.use(bodyParser.json())
-        console.log('Middlewares initiaized.....')
+        winston.info('Middlewares initialized.....')
     }
 }
 

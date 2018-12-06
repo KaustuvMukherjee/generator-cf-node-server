@@ -1,3 +1,8 @@
+/*
+ * Class - GenerateStub
+ */
+'use strict'
+const winston = require('../config/winston')
 const fs = require('fs')
 const directoryExists = require('directory-exists')
 const fileExists = require('file-exists')
@@ -9,7 +14,7 @@ class GenerateStub {
         try {
             let stubStructure = {}
 
-            openAPI.validate()
+            await openAPI.validate()
 
             let apiSpec = await openAPI.parseAPISpec()
             let paths = apiSpec.paths
@@ -60,7 +65,7 @@ class GenerateStub {
             }
             return stubStructure
         } catch (e) {
-            console.log(e)
+            throw e
         }
     }
     static createFolder(folderName) {
@@ -76,13 +81,13 @@ class GenerateStub {
             for(let controller in controllerStructure) {
                 let controllerFilePath = `${srcPath}/controllers/${controller}.js`
                 if(!fileExists.sync(controllerFilePath)
-                && controller !== 'healthController') {
+          && controller !== 'healthController') {
                     let services = controllerStructure[controller].services
                     services.forEach((service) => {
                         GenerateStub.writeControllerDependency(controller, service)
                         let serviceFilePath = `${srcPath}/services/${service}.js`
                         if(!fileExists.sync(serviceFilePath)) {
-                            GenerateStub.createServiceClass(service)
+                            GenerateStub.writeServiceClass(service)
                         }
                     })
                     let operations = controllerStructure[controller].operations
@@ -97,7 +102,13 @@ class GenerateStub {
 
     static writeControllerDependency(controller, service) {
         let filePath = `${srcPath}/controllers/${controller}.js`
-        let buffer = `const ${service} = require('../services/${service}')\n`
+        let buffer = ''
+        if(!fileExists.sync(filePath)) {
+            let className = controller.charAt(0).toUpperCase() + controller.slice(1)
+            buffer += `/*\n* Class - ${className}\n*/\n`
+            buffer += 'const winston = require(\'../config/winston\')\n'
+        }
+        buffer += `const ${service} = require('../services/${service}')\n`
         fs.appendFileSync(filePath, buffer)
     }
 
@@ -111,39 +122,43 @@ class GenerateStub {
         if(validationOperations && validationOperations.length > 0) {
             validationOperations.forEach((name) => {
                 buffer += `\n/*\n${name}\n*/\n`
-                    +`static async ${name}(req, res, next) {\n`
-                    +`console.log('${controller}.${name} called...')\n`
-                    +'next(\'route\')\n}'
+          +`static async ${name}(req, res, next) {\n`
+          +`winston.info('${controller}.${name} called...')\n`
+          +'next(\'route\')\n}'
             })
             buffer += '\n\n'
         }
         if(operations && operations.length > 0) {
             operations.forEach((name) => {
                 buffer += `\n/*\n${name}\n*/\n`
-                  +`static async ${name}(req, res, next) {`
-                  +`console.log('${controller}.${name} called...')\n`
-                  +'/* Call service class to get the job done and return the result.\n'
-                  +'"OK" is just a sample.*/\n'
-                  +'res.status(200).send("OK")\n'
-                  +'}\n'
+          +`static async ${name}(req, res, next) {`
+          +`winston.info('${controller}.${name} called...')\n`
+          +'/* Call service class to get the job done and return the result.\n'
+          +'"OK" is just a sample.*/\n'
+          +'res.status(200).send("OK")\n'
+          +'}\n'
             })
         }
         buffer += '}'
-                +'\n\n'
-                +`module.exports = ${className}`
+      +'\n\n'
+      +`module.exports = ${className}`
 
         fs.appendFileSync(filePath, buffer)
     }
 
-    static createServiceClass(service) {
+    static writeServiceClass(service) {
         let filePath = `${srcPath}/services/${service}.js`
         let className = service.charAt(0).toUpperCase() + service.slice(1)
-
-        let buffer = `\nclass ${className} {\n`
-          +'/* Write all your service/business logic here. */\n'
-          +'}'
-          +'\n\n'
-          +`module.exports = ${className}`
+        let buffer = ''
+        if(!fileExists.sync(filePath)) {
+            buffer += `/*\n* Class - ${className}\n*/\n`
+            buffer += 'const winston = require(\'../config/winston\')\n'
+        }
+        buffer += `\nclass ${className} {\n`
+      +'/* Write all your service/business logic here. */\n'
+      +'}'
+      +'\n\n'
+      +`module.exports = ${className}`
 
         fs.appendFileSync(filePath, buffer)
     }
@@ -151,8 +166,12 @@ class GenerateStub {
     static async generate() {
         GenerateStub.createFolder('controllers')
         GenerateStub.createFolder('services')
-        let stubStructure = await GenerateStub.retrieveStructure()
-        GenerateStub.createStub(stubStructure)
+        try {
+            let stubStructure = await GenerateStub.retrieveStructure()
+            GenerateStub.createStub(stubStructure)
+        } catch (e) {
+            winston.info(`Failed to generate stub: ${e}`)
+        }
     }
 }
 

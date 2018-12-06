@@ -14,9 +14,14 @@
   "main": "generators/index.js",
   "keywords": [
     "cf-node-server",
-    "cloud foundry",
+    "node-server",
+    "node-framework",
+    "express",
+    "cloud-foundry",
     "micro-service",
-    "yeoman-generator"
+    "yeoman-generator",
+    "generator",
+    "yeoman"
   ],
   "devDependencies": {
     "eslint": "^5.4.0",
@@ -35,6 +40,7 @@
   "dependencies": {
     "chalk": "^2.1.0",
     "handlebars": "^4.0.12",
+    "winston": "^3.1.0",
     "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },
@@ -59,7 +65,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test && lint-staged"
+      "pre-commit": "lint-staged && npm run test"
     }
   },
   "scripts": {

@@ -1,4 +1,8 @@
+/*
+ * Class - UserInput
+ */
 'use strict'
+const winston = require('./winston')
 const fs = require('fs')
 const chalk = require('chalk')
 const yosay = require('yosay')
@@ -14,8 +18,8 @@ class UserInput {
         })
     }
     static greetUser () {
-        console.log(
-            yosay(`Welcome to ${chalk.red.bold('cf-node-server')} generator! by: ${chalk.yellow.bold('Kaustuv Mukherjee')}`, {maxLength: 36})
+        winston.info(
+            yosay(`Welcome to ${chalk.red.bold('cf-node-server')} generator!`, {maxLength: 36})
         )
     }
     static async getProjectType() {
@@ -133,8 +137,8 @@ class UserInput {
             await UserInput.getEmail()
             await UserInput.getNodeVersion()
             await UserInput.getNPMVersion()
-        } catch(ex) {
-            console.log(ex)
+        } catch(e) {
+            winston.error(e)
         }
     }
 }

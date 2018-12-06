@@ -1,3 +1,8 @@
+/*
+ * Class - Router
+ */
+'use strict'
+const winston = require('../config/winston')
 const path = require('path')
 const fs = require('fs')
 const controllerPath = path.join(__dirname, 'controllers').replace('/routers', '')
@@ -29,7 +34,6 @@ const loadRoutesConfig = () => {
 
 const loadControllers = (app) => {
     app.controllers = {}
-    console.log(controllerPath)
     fs.readdirSync(controllerPath).forEach((fileName) => {
         if(fileName.indexOf('.DS_Store') <= -1) {
             let controllerName = fileName.replace('.js', '')
@@ -49,7 +53,16 @@ const bindRoutes = (app) => {
     loadControllers(app)
     loadRoutesConfig().forEach((route) => {
         route.handlers.forEach((handler) => {
-            app[route.method](route.path, bindRouteToController(app.controllers[route.controller], handler))
+            if(route.controller in app.controllers) {
+                if(handler in app.controllers[route.controller]) {
+                    app[route.method](route.path, bindRouteToController(app.controllers[route.controller], handler))
+                    winston.info(`Route Map: PATH = ${route.path} | METHOD = ${route.method} | CONTROLLER = ${route.controller} | HANDLER = ${handler}`)
+                } else {
+                    winston.error(`Controller = ${route.controller} | Handler = ${handler} not found.`)
+                }
+            } else {
+                winston.error(`Controller = ${route.controller} not found.}`)
+            }
         })
     })
 }

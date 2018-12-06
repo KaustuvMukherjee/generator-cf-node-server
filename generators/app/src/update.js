@@ -1,4 +1,8 @@
+/*
+ * Class - Update
+ */
 'use strict'
+const winston = require('./winston')
 const fs = require('fs')
 const handleBars = require('handlebars')
 const CURR_DIR = process.cwd()
