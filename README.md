@@ -30,7 +30,7 @@ yo cf-node-server
 ## Highlights of the micro-service scaffolding project:
 - Supports OpenAPI Specification V3.
 - Provides out-of-the box '/health' API.
-- Provides sample get, put, post request based on OpenAPI Specification V3.
+- Provides sample GET, PUT, POST request based on OpenAPI Specification V3.
 - Auto generates stubs (controller & service classes) based on Open API Specification V3.
 
 ## Getting To Know Yeoman
