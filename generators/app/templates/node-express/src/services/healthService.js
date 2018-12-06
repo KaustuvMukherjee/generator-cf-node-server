@@ -1,7 +1,7 @@
 /*
  * Generic health response in Cloud Foundry.
  */
-
+'use strict'
 const instanceIndex = process.env.CF_INSTANCE_INDEX
 
 class HealthService {

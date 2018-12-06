@@ -1,6 +1,7 @@
 /*
  * Class - OpenAPIParser
  */
+'use strict'
 const SwaggerParser = require('swagger-parser')
 const fs = require('fs')
 const apiDefinitionPath = fs.realpathSync('apiDefinition')

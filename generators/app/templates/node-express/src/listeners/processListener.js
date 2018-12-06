@@ -1,6 +1,7 @@
 /*
  * Class - ProcessListener
  */
+'use strict'
 const winston = require('../config/winston')
 
 class ProcessListener {

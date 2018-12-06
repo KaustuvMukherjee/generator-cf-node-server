@@ -1,6 +1,7 @@
 /*
  * Class - HealthController
  */
+'use strict'
 const winston = require('../config/winston')
 const HealthService = require('../services/healthService')
 

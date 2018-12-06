@@ -81,7 +81,7 @@ class GenerateStub {
             for(let controller in controllerStructure) {
                 let controllerFilePath = `${srcPath}/controllers/${controller}.js`
                 if(!fileExists.sync(controllerFilePath)
-          && controller !== 'healthController') {
+                && controller !== 'healthController') {
                     let services = controllerStructure[controller].services
                     services.forEach((service) => {
                         GenerateStub.writeControllerDependency(controller, service)
@@ -122,26 +122,26 @@ class GenerateStub {
         if(validationOperations && validationOperations.length > 0) {
             validationOperations.forEach((name) => {
                 buffer += `\n/*\n${name}\n*/\n`
-          +`static async ${name}(req, res, next) {\n`
-          +`winston.info('${controller}.${name} called...')\n`
-          +'next(\'route\')\n}'
+                    +`static async ${name}(req, res, next) {\n`
+                    +`winston.info('${controller}.${name} called...')\n`
+                    +'next(\'route\')\n}'
             })
             buffer += '\n\n'
         }
         if(operations && operations.length > 0) {
             operations.forEach((name) => {
                 buffer += `\n/*\n${name}\n*/\n`
-          +`static async ${name}(req, res, next) {`
-          +`winston.info('${controller}.${name} called...')\n`
-          +'/* Call service class to get the job done and return the result.\n'
-          +'"OK" is just a sample.*/\n'
-          +'res.status(200).send("OK")\n'
-          +'}\n'
+                  +`static async ${name}(req, res, next) {`
+                  +`winston.info('${controller}.${name} called...')\n`
+                  +'/* Call service class to get the job done and return the result.\n'
+                  +'"OK" is just a sample.*/\n'
+                  +'res.status(200).send("OK")\n'
+                  +'}\n'
             })
         }
         buffer += '}'
-      +'\n\n'
-      +`module.exports = ${className}`
+                +'\n\n'
+                +`module.exports = ${className}`
 
         fs.appendFileSync(filePath, buffer)
     }
@@ -155,10 +155,10 @@ class GenerateStub {
             buffer += 'const winston = require(\'../config/winston\')\n'
         }
         buffer += `\nclass ${className} {\n`
-      +'/* Write all your service/business logic here. */\n'
-      +'}'
-      +'\n\n'
-      +`module.exports = ${className}`
+          +'/* Write all your service/business logic here. */\n'
+          +'}'
+          +'\n\n'
+          +`module.exports = ${className}`
 
         fs.appendFileSync(filePath, buffer)
     }

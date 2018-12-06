@@ -1,6 +1,7 @@
 /*
  * Class - Middleware
  */
+'use strict'
 const winston = require('../config/winston')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')

@@ -15,7 +15,7 @@ const HTTP_PORT = 3000
 class Application {
 
     static run(app) {
-    // Mount Middlewares
+        // Mount Middlewares
         Middleware.initialize(app)
 
         // Mount Routes
