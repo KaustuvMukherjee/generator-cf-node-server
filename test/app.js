@@ -24,6 +24,11 @@ describe('generator-cf-node-server:app', () => {
             `${targetDirectory}/package.json`])
     })
 
+    it('Verifying files at /src/config', () => {
+        let targetDirectory = `${CURR_DIR}/${testDir}/tmp/${global.appData.userInputs.projectName.val}/src/config`
+        assert.file([`${targetDirectory}/winston.js`])
+    })
+
     it('Verifying files at /src/controllers', () => {
         let targetDirectory = `${CURR_DIR}/${testDir}/tmp/${global.appData.userInputs.projectName.val}/src/controllers`
         assert.file([`${targetDirectory}/healthController.js`])

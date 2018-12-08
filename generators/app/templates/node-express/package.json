@@ -36,6 +36,8 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/controllers/*.js",
+      "src/listeners/*.js",
+      "src/middlewares/*.js",
       "src/routers/*.js",
       "src/services/*.js"
     ]
