@@ -32,6 +32,7 @@ yo cf-node-server
 - Provides out-of-the box '/health' API.
 - Provides sample GET, PUT, POST request based on OpenAPI Specification V3.
 - Auto generates stubs (controller & service classes) based on Open API Specification V3.
+- Ready to deploy on Cloud Foundry.
 
 ## Getting To Know Yeoman
 

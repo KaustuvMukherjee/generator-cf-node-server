@@ -9,9 +9,11 @@ const yosay = require('yosay')
 const skeleton = require('./src/skeleton')
 const userInput = require('./src/userInput')
 const update = require('./src/update')
+const processListener = require('./src/processListener')
 const CURR_DIR = process.cwd()
 
 function initialize () {
+    processListener.listen()
     global.continue = true
     global.appData = {}
     global.appData.userInputs = {}

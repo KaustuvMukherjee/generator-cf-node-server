@@ -3,6 +3,7 @@
  */
 'use strict'
 const winston = require('./winston')
+const formatter = require('./messageFormatter')
 const fs = require('fs')
 const chalk = require('chalk')
 const yosay = require('yosay')
@@ -16,11 +17,6 @@ class UserInput {
             }
             return true
         })
-    }
-    static greetUser () {
-        winston.info(
-            yosay(`Welcome to ${chalk.red.bold('cf-node-server')} generator!`, {maxLength: 36})
-        )
     }
     static async getProjectType() {
         UserInput.refineProjectTypes()
@@ -128,7 +124,7 @@ class UserInput {
     }
     static async handleUserInputs() {
         try {
-            UserInput.greetUser()
+            formatter.greetUser()
             await UserInput.getProjectType()
             await UserInput.getProjectName()
             await UserInput.getVersion()
