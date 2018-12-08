@@ -45,15 +45,25 @@ class MessageFormatter {
                 formattedText: chalk.green.bold(' ')},
             {text: 'Important Note:',
                 formattedText: chalk.red.bold('Important Note:')},
-            {text: 'node-express-server includes husky.',
-                formattedText: chalk.yellow.bold('node-express-server') + chalk.green.bold(' includes husky.')},
+            {text: `${global.appData.userInputs.projectName.val} includes husky.`,
+                formattedText: chalk.yellow.bold(`${global.appData.userInputs.projectName.val}`) + chalk.green.bold(' includes husky.')},
             {text: 'Husky requires .git to install GIT hooks.',
                 formattedText: chalk.green.bold('Husky requires') + chalk.yellow.bold(' .git') + chalk.green.bold(' to install GIT hooks.')},
-            {text: 'Please run \'git init\' to create an empty Git repository followed by npm install.',
+            {text: 'Please run \'git init\' to create an empty Git repository followed by npm i husky --save.',
                 formattedText: chalk.green.bold('Please run') +
                                 chalk.yellow.bold(' \'git init\'') +
                                 chalk.green.bold(' to create an empty Git repository followed by') +
-                                chalk.yellow.bold(' npm install.')},
+                                chalk.yellow.bold(' npm i husky --save.')},
+            {text: ' ',
+                formattedText: chalk.green.bold(' ')},
+            {text: 'Steps:',
+                formattedText: chalk.yellow.bold('Steps:')},
+            {text: `    $cd ${global.appData.userInputs.projectName.val}`,
+                formattedText: chalk.yellow.bold(`    $cd ${global.appData.userInputs.projectName.val}`)},
+            {text: '    $git init',
+                formattedText: chalk.yellow.bold('    $git init')},
+            {text: '    $npm i husky --save',
+                formattedText: chalk.yellow.bold('    $npm i husky --save')},
             {text: ' ',
                 formattedText: chalk.green.bold(' ')}
         ]
