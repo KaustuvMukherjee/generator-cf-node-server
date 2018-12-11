@@ -58,6 +58,11 @@ yo cf-node-server
 ```bash
 npm run stub
 ```
+###### Step 4 - Relevant controllers and services classes will be generated in:
+```bash
+/src/controllers
+/src/services
+```
 ### Provides sample GET, PUT, POST request based on OpenAPI Specification V3
 ###### As a ready example, try the '/sample' endpoint already defined in: 
 ```bash
