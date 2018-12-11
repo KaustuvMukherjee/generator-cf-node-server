@@ -44,7 +44,7 @@ yo cf-node-server
 # About the generated microservice scaffolding
 
 ### Supports OpenAPI Specification V3
-##### Path for your API definition
+###### Path for your API definition:
 ```bash
 /apiDefinition/openapi.json
 ```
@@ -59,7 +59,7 @@ yo cf-node-server
 npm run stub
 ```
 ### Provides sample GET, PUT, POST request based on OpenAPI Specification V3
-###### As a ready example, try the '/sample' endpoint akready defined in 
+###### As a ready example, try the '/sample' endpoint already defined in 
 ```bash
 /apiDefinition/openapi.json
 ```
