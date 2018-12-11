@@ -29,9 +29,9 @@ yo cf-node-server
 
 #### Highlights of the micro-service scaffolding project:
 - Supports OpenAPI Specification V3.
-- Provides out-of-the box '/health' API.
 - Provides sample GET, PUT, POST request based on OpenAPI Specification V3.
 - Auto generates stubs (controller & service classes) based on Open API Specification V3.
+- Provides out-of-the box '/health' API.
 - Ready to deploy on Cloud Foundry.
 
 #### Getting To Know Yeoman
@@ -48,33 +48,27 @@ yo cf-node-server
 ```bash
 /apiDefinition/openapi.json
 ```
-#### Run the following to create relevant controller and service classes:
-```bash
-npm run stub
-```
-- As a ready example, try the /sample endpoint
+## Provides sample GET, PUT, POST request based on OpenAPI Specification V3.
+#### As a ready example, try the /sample endpoint
 ```bash
 npm run stub
 npm run start
 http://localhost:3000/sample
 ```
-
 ## Provides out-of-the box health endpoint
 #### Run the server locally:
 ```bash
 npm run start
 ```
-- Test '/health' endpoint:
+#### Test '/health' endpoint:
 ```bash
 http://localhost:3000/health
 ```
-
 ## Ready to deploy to Cloud Foundry
 #### To deploy the app to Cloud Foundry:
 ```bash
 cf push -f manifest.yml
 ```
-
 ## License
 
 MIT © [Kaustuv Mukherjee]()
