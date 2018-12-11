@@ -50,24 +50,24 @@ yo cf-node-server
 ```
 ## Provides sample GET, PUT, POST request based on OpenAPI Specification V3
 #### As a ready example, try the '/sample' endpoint
-##### Generate relevant controller and services classes for '/sample' endpoint:
+##### Step 1 - Generate relevant controller and services classes for '/sample' endpoint:
 ```bash
 npm run stub
 ```
-##### Run the server locally:
+##### Step 2 - Run the server locally:
 ```bash
 npm run local-start
 ```
-##### Verify GET '/sample' API:
+##### Step 3 - Verify GET '/sample' API:
 ```bash
 http://localhost:3000/sample
 ```
 ## Provides out-of-the box health endpoint
-##### Run the server locally:
+##### Step 1 - Run the server locally:
 ```bash
 npm run start
 ```
-##### Verify application health:
+##### Step 2 - Verify application health:
 ```bash
 http://localhost:3000/health
 ```
