@@ -54,7 +54,7 @@ yo cf-node-server
 /apiDefinition/openapi.json
 ```
 ###### Step 2 - Verify file content using Swagger UI ([Swagger Editor](https://editor.swagger.io/)):
-###### Step 3 - Generate relevant controllers and services classes:
+###### Step 3 - Generate relevant controller and service classes:
 ```bash
 npm run stub
 ```
@@ -68,7 +68,7 @@ npm run stub
 ```bash
 /apiDefinition/openapi.json
 ```
-###### Step 1 - Generate relevant controllers and services classes for '/sample' endpoint:
+###### Step 1 - Generate relevant controller and service classes for '/sample' endpoint:
 ```bash
 npm run stub
 ```
