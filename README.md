@@ -43,12 +43,12 @@ yo cf-node-server
  
 # About the generated microservice scaffolding
 
-## Supports OpenAPI Specification V3
+### Supports OpenAPI Specification V3
 ##### Define your own API
 ```bash
 /apiDefinition/openapi.json
 ```
-## Auto generates stubs (controller & service classes) based on Open API Specification V3.
+### Auto generates stubs (controller & service classes) based on Open API Specification V3.
 ###### Step 1 - Define your own API
 ```bash
 /apiDefinition/openapi.json
@@ -58,7 +58,7 @@ yo cf-node-server
 ```bash
 npm run stub
 ```
-## Provides sample GET, PUT, POST request based on OpenAPI Specification V3
+### Provides sample GET, PUT, POST request based on OpenAPI Specification V3
 ###### As a ready example, try the '/sample' endpoint akready defined in 
 ```bash
 /apiDefinition/openapi.json
@@ -75,7 +75,7 @@ npm run local-start
 ```bash
 http://localhost:3000/sample
 ```
-## Provides out-of-the box health endpoint
+### Provides out-of-the box health endpoint
 ###### Step 1 - Run the server locally:
 ```bash
 npm run start
@@ -84,7 +84,7 @@ npm run start
 ```bash
 http://localhost:3000/health
 ```
-## Ready to deploy to Cloud Foundry
+### Ready to deploy to Cloud Foundry
 ###### To deploy the app to Cloud Foundry:
 ```bash
 cf push -f manifest.yml
