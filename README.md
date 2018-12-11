@@ -58,7 +58,7 @@ yo cf-node-server
 ```bash
 npm run stub
 ```
-###### Step 4 - Relevant controllers and services classes will be generated in:
+###### Step 4 - Relevant controller and service classes will be generated in:
 ```bash
 /src/controllers
 /src/services
