@@ -49,17 +49,17 @@ yo cf-node-server
 /apiDefinition/openapi.json
 ```
 ### Auto generates stubs (controller & service classes) based on Open API Specification V3.
-###### Step 1 - Define your own API
+###### Step 1 - Define your own API:
 ```bash
 /apiDefinition/openapi.json
 ```
-###### Step 2 - Verify file content using Swagger UI ([Swagger Editor](https://editor.swagger.io/))
-###### Step 3 - Generate relevant controllers and services classes
+###### Step 2 - Verify file content using Swagger UI ([Swagger Editor](https://editor.swagger.io/)):
+###### Step 3 - Generate relevant controllers and services classes:
 ```bash
 npm run stub
 ```
 ### Provides sample GET, PUT, POST request based on OpenAPI Specification V3
-###### As a ready example, try the '/sample' endpoint already defined in 
+###### As a ready example, try the '/sample' endpoint already defined in: 
 ```bash
 /apiDefinition/openapi.json
 ```
