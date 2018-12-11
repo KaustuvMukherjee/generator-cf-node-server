@@ -40,6 +40,40 @@ yo cf-node-server
  * Yeoman is a person with feelings and opinions, but is very easy to work with.
  * Yeoman can be too opinionated at times but is easily convinced not to be.
  * Feel free to [learn more about Yeoman](http://yeoman.io/).
+ 
+# Generated microservice scaffolding
+
+## Supports OpenAPI Specification V3
+#### Define your API:
+```bash
+/apiDefinition/openapi.json
+```
+#### Run the following to create relevant controller and service classes:
+```bash
+npm run stub
+```
+- As a ready example, try the /sample endpoint
+```bash
+npm run stub
+npm run start
+http://localhost:3000/sample
+```
+
+## Provides out-of-the box health endpoint
+#### Run the server locally:
+```bash
+npm run start
+```
+- Test '/health' endpoint:
+```bash
+http://localhost:3000/health
+```
+
+## Ready to deploy to Cloud Foundry
+#### To deploy the app to Cloud Foundry:
+```bash
+cf push -f manifest.yml
+```
 
 ## License
 
