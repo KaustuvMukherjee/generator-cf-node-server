@@ -44,7 +44,7 @@ yo cf-node-server
 # About the generated microservice scaffolding
 
 ### Supports OpenAPI Specification V3
-##### Define your own API
+##### Path for your API definition
 ```bash
 /apiDefinition/openapi.json
 ```
