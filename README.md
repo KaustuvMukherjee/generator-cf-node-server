@@ -29,8 +29,8 @@ yo cf-node-server
 
 #### Highlights of the micro-service scaffolding project:
 - Supports OpenAPI Specification V3.
-- Provides sample GET, PUT, POST request based on OpenAPI Specification V3.
 - Auto generates stubs (controller & service classes) based on Open API Specification V3.
+- Provides sample GET, PUT, POST request based on OpenAPI Specification V3.
 - Provides out-of-the box '/health' API.
 - Ready to deploy on Cloud Foundry.
 
@@ -44,13 +44,30 @@ yo cf-node-server
 # About the generated microservice scaffolding
 
 ## Supports OpenAPI Specification V3
-##### Define your API
+##### Define your own API
 ```bash
 /apiDefinition/openapi.json
 ```
+## Auto generates stubs (controller & service classes) based on Open API Specification V3.
+##### Step 1 - Define your own API
+```bash
+/apiDefinition/openapi.json
+```
+##### Step 2 - Verify file content using Swagger UI ([Swagger Editor](https://editor.swagger.io/))
+##### Step 3 - Generate relevant controllers and services classes
+```bash
+npm run stub
+```
+##### Step 4 - Run the server locally:
+```bash
+npm run local-start
+```
 ## Provides sample GET, PUT, POST request based on OpenAPI Specification V3
-#### As a ready example, try the '/sample' endpoint
-##### Step 1 - Generate relevant controller and services classes for '/sample' endpoint:
+#### As a ready example, try the '/sample' endpoint akready defined in 
+```bash
+/apiDefinition/openapi.json
+```
+##### Step 1 - Generate relevant controllers and services classes for '/sample' endpoint:
 ```bash
 npm run stub
 ```
