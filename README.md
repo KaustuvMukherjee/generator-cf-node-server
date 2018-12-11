@@ -1,7 +1,7 @@
 # generator-cf-node-server
 > Yeoman generator plugin for NodeJS micro-service scaffolding on Cloud Foundry.
 
-## Installation steps:
+#### Installation steps:
 
 - Install [Yeoman](http://yeoman.io) using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
@@ -27,21 +27,21 @@ npm link
 yo cf-node-server
 ```
 
-## Highlights of the micro-service scaffolding project:
+#### Highlights of the micro-service scaffolding project:
 - Supports OpenAPI Specification V3.
 - Provides out-of-the box '/health' API.
 - Provides sample GET, PUT, POST request based on OpenAPI Specification V3.
 - Auto generates stubs (controller & service classes) based on Open API Specification V3.
 - Ready to deploy on Cloud Foundry.
 
-## Getting To Know Yeoman
+#### Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
  * Yeoman is a person with feelings and opinions, but is very easy to work with.
  * Yeoman can be too opinionated at times but is easily convinced not to be.
  * Feel free to [learn more about Yeoman](http://yeoman.io/).
  
-# Generated microservice scaffolding
+# About the generated microservice scaffolding
 
 ## Supports OpenAPI Specification V3
 #### Define your API:
