@@ -3,18 +3,20 @@
 
 #### Installation steps:
 
-First, install [Yeoman](http://yeoman.io) and generator-cf-node-server using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+- First, install [Yeoman](http://yeoman.io) and generator-cf-node-server using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
 npm install -g generator-cf-node-server
 ```
 
-- Finally, provide the necessary inputs to generate your NodeJS micro-service scaffolding.
+- Next, provide the necessary inputs to generate your NodeJS micro-service scaffolding.
 
 ```bash
 yo cf-node-server
 ```
+
+- Thats's it. You are ready go!!
 
 #### Highlights of the micro-service scaffolding project:
 - Supports OpenAPI Specification V3.
