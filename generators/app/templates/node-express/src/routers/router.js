@@ -58,10 +58,10 @@ const bindRoutes = (app) => {
                     app[route.method](route.path, bindRouteToController(app.controllers[route.controller], handler))
                     winston.info(`Route Map: PATH = ${route.path} | METHOD = ${route.method} | CONTROLLER = ${route.controller} | HANDLER = ${handler}`)
                 } else {
-                    winston.error(`Controller = ${route.controller} | Handler = ${handler} not found.`)
+                    winston.warn(`Controller = ${route.controller} | Handler = ${handler} not found.`)
                 }
             } else {
-                winston.error(`Controller = ${route.controller} not found.}`)
+                winston.warn(`Controller = ${route.controller} not found.}`)
             }
         })
     })
