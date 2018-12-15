@@ -97,11 +97,3 @@ cf push -f manifest.yml
 ## License
 
 MIT © [Kaustuv Mukherjee]()
-
-
-[npm-image]: https://badge.fury.io/js/generator-cf-node-server.svg
-[npm-url]: https://npmjs.org/package/generator-cf-node-server
-[travis-image]: https://travis-ci.org/KaustuvMukherjee/generator-cf-node-server.svg?branch=master
-[travis-url]: https://travis-ci.org/KaustuvMukherjee/generator-cf-node-server
-[daviddm-image]: https://david-dm.org/KaustuvMukherjee/generator-cf-node-server.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/KaustuvMukherjee/generator-cf-node-server

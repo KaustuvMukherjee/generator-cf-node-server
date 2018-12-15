@@ -2,7 +2,7 @@
   "name": "generator-cf-node-server",
   "version": "0.0.0",
   "description": "Yeoman generator plugin for NodeJS micro-service scaffolding on Cloud Foundry.",
-  "homepage": "https://github.com/KaustuvMukherjee/generator-cf-node-server.git",
+  "homepage": "",
   "author": {
     "name": "Kaustuv Mukherjee",
     "email": "kaustuvmukherjee@hotmail.com",
@@ -72,6 +72,6 @@
     "lint": "eslint --fix .",
     "test": "jest"
   },
-  "repository": "https://github.com/KaustuvMukherjee/generator-cf-node-server.git",
+  "repository": "",
   "license": "MIT"
 }
