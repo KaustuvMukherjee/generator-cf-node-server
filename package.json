@@ -1,6 +1,6 @@
 {
   "name": "generator-cf-node-server",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "description": "Yeoman generator plugin for NodeJS micro-service scaffolding on Cloud Foundry.",
   "homepage": "",
   "author": {
