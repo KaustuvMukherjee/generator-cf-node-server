@@ -16,7 +16,7 @@ npm install -g generator-cf-node-server
 yo cf-node-server
 ```
 
-- Thats's it. You are ready go!!
+- Thats's it. You are ready to go!!
 
 #### Highlights of the micro-service scaffolding project:
 - Supports OpenAPI Specification V3.
