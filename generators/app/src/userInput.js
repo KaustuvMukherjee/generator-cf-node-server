@@ -122,6 +122,9 @@ class UserInput {
     static async getFromUser(prompts) {
         return await global.appData.generator.prompt(prompts)
     }
+    static done() {
+        console.log('\n\n\n')
+    }
     static async handleUserInputs() {
         try {
             formatter.greetUser()
@@ -133,6 +136,7 @@ class UserInput {
             await UserInput.getEmail()
             await UserInput.getNodeVersion()
             await UserInput.getNPMVersion()
+            UserInput.done()
         } catch(e) {
             winston.error(e)
         }

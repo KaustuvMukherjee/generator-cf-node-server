@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --fix .",
-    "stub": "node $NODE_DEBUG_OPTION ./src/openAPI/generateStub.js",
+    "stub": "node $NODE_DEBUG_OPTION ./src/openAPI/generateStub.js | eslint --fix .",
     "start": "node index.js",
     "local-start": "node $NODE_DEBUG_OPTION index.js",
     "test": "jest"
