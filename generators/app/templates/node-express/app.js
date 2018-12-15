@@ -23,7 +23,7 @@ class Application {
 
         // Create HTTP server
         global.server = app.listen(process.env.PORT || 3000, () => {
-            winston.info(`HTTPS server started at port ${process.env.PORT || 3000}`)
+            winston.info(`HTTP server started at port ${process.env.PORT || 3000}`)
         })
     }
 
