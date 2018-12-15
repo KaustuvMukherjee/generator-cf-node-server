@@ -3,25 +3,14 @@
 
 #### Installation steps:
 
-- Install [Yeoman](http://yeoman.io) using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-cf-node-server using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-```
-- Download or clone generator-cf-node-server and change directory to generator-cf-node-server. Run npm install.
-
-```bash
-cd generator-cf-node-server
-npm i
+npm install -g generator-cf-node-server
 ```
 
-- Use npm link to link the generator in the global node modules.
-
-```bash
-npm link
-```
-
-- Finally provide the necessary inputs to generate your NodeJS micro-service scaffolding.
+- Finally, provide the necessary inputs to generate your NodeJS micro-service scaffolding.
 
 ```bash
 yo cf-node-server
