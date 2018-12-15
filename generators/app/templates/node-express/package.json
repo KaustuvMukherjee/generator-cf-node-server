@@ -1,6 +1,6 @@
 {
-  "name": "node-express-server-1.0.0",
-  "version": "1.0.0",
+  "name": "node-express-server-0.0.0",
+  "version": "0.0.0",
   "description": "Basic node-express server.",
   "main": "index.js",
   "scripts": {
