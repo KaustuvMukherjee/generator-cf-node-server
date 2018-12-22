@@ -5,7 +5,7 @@
 const winston = require('./winston')
 const formatter = require('./messageFormatter')
 const fs = require('fs')
-const chalk = require('chalk')
+const colors = require('colors/safe')
 const yosay = require('yosay')
 var PROJECT_TYPES = fs.readdirSync(`${__dirname.replace('/src', '')}/templates`)
 
@@ -24,7 +24,7 @@ class UserInput {
             {
                 type: 'list',
                 name: 'val',
-                message: 'Enter project type: ',
+                message: colors.yellow('Enter project type: '),
                 choices: PROJECT_TYPES,
                 default: 'node-express'
             }
@@ -36,7 +36,7 @@ class UserInput {
             {
                 type: 'input',
                 name: 'val',
-                message: 'Enter project name: ',
+                message: colors.yellow('Enter project name: '),
                 default: 'node-express-server'
             }
         ]
@@ -47,7 +47,7 @@ class UserInput {
             {
                 type: 'input',
                 name: 'val',
-                message: 'Enter version: ',
+                message: colors.yellow('Enter version: '),
                 default: '1.0.0'
             }
         ]
@@ -58,7 +58,7 @@ class UserInput {
             {
                 type: 'input',
                 name: 'val',
-                message: 'Enter description: ',
+                message: colors.yellow('Enter description: '),
                 default: 'Basic node-express server.'
             }
         ]
@@ -69,7 +69,7 @@ class UserInput {
             {
                 type: 'input',
                 name: 'val',
-                message: 'Enter author: ',
+                message: colors.yellow('Enter author: '),
                 default: 'Your name'
             }
         ]
@@ -80,7 +80,7 @@ class UserInput {
             {
                 type: 'input',
                 name: 'val',
-                message: 'Enter email: ',
+                message: colors.yellow('Enter email: '),
                 default: 'abc@xyz.com'
             }
         ]
@@ -91,7 +91,7 @@ class UserInput {
             {
                 type: 'input',
                 name: 'val',
-                message: 'Enter buildpack: ',
+                message: colors.yellow('Enter buildpack: '),
                 default: ''
             }
         ]
@@ -102,7 +102,7 @@ class UserInput {
             {
                 type: 'input',
                 name: 'val',
-                message: 'Enter node version: ',
+                message: colors.yellow('Enter node version: '),
                 default: '8.9.4'
             }
         ]
@@ -113,7 +113,7 @@ class UserInput {
             {
                 type: 'input',
                 name: 'val',
-                message: 'Enter npm version: ',
+                message: colors.yellow('Enter npm version: '),
                 default: '6.2.0'
             }
         ]
