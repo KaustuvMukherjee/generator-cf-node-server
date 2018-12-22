@@ -6,13 +6,14 @@ const winston = require('../config/winston')
 const HealthService = require('../services/healthService')
 
 class HealthController {
-    static async validateHealthRequest(req, res, next) {
+    static async validateHealthRequest(ctx, next) {
         winston.info('HealthController.validateHealthRequest called...')
         next('route')
     }
-    static async getHealth(req, res, next) {
+    static async getHealth(ctx, next) {
         winston.info('HealthController.getHealth called...')
-        res.status(200).send(await HealthService.up())
+        ctx.status = 200
+        ctx.body = await HealthService.up()
     }
 }
 

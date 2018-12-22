@@ -27,7 +27,7 @@ class UserInput {
                 message: colors.yellow('Enter project type: '),
                 choices: PROJECT_TYPES,
                 default: 'node-express'
-            } 
+            }
         ]
         global.appData.userInputs.projectType = await UserInput.getFromUser(prompts)
     }
@@ -37,7 +37,7 @@ class UserInput {
                 type: 'input',
                 name: 'val',
                 message: colors.yellow('Enter project name: '),
-                default: 'node-express-server'
+                default: global.appData.userInputs.projectType.val === 'node-express' ? 'node-express-server' : 'node-koa-server'
             }
         ]
         global.appData.userInputs.projectName = await UserInput.getFromUser(prompts)
@@ -59,7 +59,7 @@ class UserInput {
                 type: 'input',
                 name: 'val',
                 message: colors.yellow('Enter description: '),
-                default: 'Basic node-express server.'
+                default: global.appData.userInputs.projectType.val === 'node-express' ? 'Basic node-express server.' : 'Basic node-koa server.'
             }
         ]
         global.appData.userInputs.description = await UserInput.getFromUser(prompts)

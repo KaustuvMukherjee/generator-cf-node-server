@@ -3,8 +3,10 @@
 'use strict'
 const process = require('./src/listeners/processListener.js')
 const application = require('./app.js')
-const express = require('express')
-const app = express()
+const koa = require('koa')
+const koaRouter = require('koa-router')
+const app = new koa()
+const router = new koaRouter()
 
 
 /*
@@ -15,4 +17,4 @@ process.listen()
 /*
  * Run the application.
  */
-application.run(app)
+application.run(app, router)

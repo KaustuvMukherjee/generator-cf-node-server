@@ -20,8 +20,16 @@ function initialize () {
 
     global.appData.nodeDependencies = []
     global.appData.nodeDevDependencies = []
+}
+
+function determineDependencies() {
     global.appData.nodeDependencies.push('body-parser')
-    global.appData.nodeDependencies.push('express')
+    if(global.appData.userInputs.projectType.val === 'node-express') {
+        global.appData.nodeDependencies.push('express')
+    } else {
+        global.appData.nodeDependencies.push('koa')
+        global.appData.nodeDependencies.push('koa-router')
+    }
     global.appData.nodeDependencies.push('morgan')
     global.appData.nodeDependencies.push('winston')
     //
@@ -59,6 +67,7 @@ module.exports = class extends Generator {
         if(global.continue === false) {
             return
         }
+        determineDependencies()
         var npmdDirectory = `${CURR_DIR}/${global.appData.userInputs.projectName.val}`
         process.chdir(npmdDirectory)
         if(global.appData.nodeDependencies.length > 0) {
