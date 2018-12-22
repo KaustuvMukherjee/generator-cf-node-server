@@ -27,7 +27,7 @@ class UserInput {
                 message: colors.yellow('Enter project type: '),
                 choices: PROJECT_TYPES,
                 default: 'node-express'
-            }
+            } 
         ]
         global.appData.userInputs.projectType = await UserInput.getFromUser(prompts)
     }
