@@ -17,6 +17,8 @@ class MessageFormatter {
                 formattedText: chalk.green.bold(' ')},
             {text: 'Highlights:',
                 formattedText: chalk.yellow.bold('Highlights:')},
+            {text: '    - Option to integrate Express or Koa as the web application framework.',
+                formattedText: chalk.yellow.bold('    - Option to integrate Express or Koa as the web application framework.')},
             {text: '    - Supports OpenAPI Specification V3.',
                 formattedText: chalk.yellow.bold('    - Supports OpenAPI Specification V3.')},
             {text: '    - Provides out-of-the-box \'/health\' API.',

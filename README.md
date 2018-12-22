@@ -19,6 +19,7 @@ yo cf-node-server
 - Thats's it. You are ready to go!!
 
 #### Highlights of the micro-service scaffolding project:
+- Option to integrate Express or Koa as the web application framework.
 - Supports OpenAPI Specification V3.
 - Auto generates stubs (controller & service classes) based on Open API Specification V3.
 - Provides sample GET, PUT, POST request based on OpenAPI Specification V3.
