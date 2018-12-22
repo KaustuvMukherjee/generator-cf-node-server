@@ -23,12 +23,15 @@ class Update {
     static manifestYAML () {
         let name = `${global.appData.userInputs.projectName.val}-${global.appData.userInputs.version.val}`
         let host = `${global.appData.userInputs.projectName.val}`
+        let memory = `${global.appData.userInputs.memory.val}`
+        let disk_quota = `${global.appData.userInputs.diskQuota.val}`
+        let instances = `${global.appData.userInputs.instances.val}`
         let services = '  - redis_clncnct_provider_service\r\n  - redis_clncnct_provider_service'
 
         let manifestYMLPath = `${CURR_DIR}/${global.appData.userInputs.projectName.val}/manifest.yml`
         const sourceManifest = fs.readFileSync(manifestYMLPath).toString()
         const template = handleBars.compile(sourceManifest)
-        const manifestYML = template({PROJECT_NAME: name, HOST: host})
+        const manifestYML = template({PROJECT_NAME: name, HOST: host, MEMORY: memory, DISK_SPACE: disk_quota, INSTANCES: instances})
 
         fs.unlinkSync(manifestYMLPath)
         fs.writeFileSync(manifestYMLPath, manifestYML)

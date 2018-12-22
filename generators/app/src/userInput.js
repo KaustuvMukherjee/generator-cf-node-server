@@ -8,6 +8,9 @@ const fs = require('fs')
 const colors = require('colors/safe')
 const yosay = require('yosay')
 var PROJECT_TYPES = fs.readdirSync(`${__dirname.replace('/src', '')}/templates`)
+const MEMORY = ['256M', '512M', '1024M', '2048M']
+const DISK_QUOTA = ['1024M', '2048M']
+const INSTANCES = ['1', '2', '3', '4']
 
 class UserInput {
     static refineProjectTypes() {
@@ -26,7 +29,7 @@ class UserInput {
                 name: 'val',
                 message: colors.yellow('Enter project type: '),
                 choices: PROJECT_TYPES,
-                default: 'node-express'
+                default: PROJECT_TYPES[0]
             }
         ]
         global.appData.userInputs.projectType = await UserInput.getFromUser(prompts)
@@ -97,6 +100,42 @@ class UserInput {
         ]
         global.appData.userInputs.buildpack = await UserInput.getFromUser(prompts)
     }
+    static async getMemory() {
+        const prompts = [
+            {
+                type: 'list',
+                name: 'val',
+                message: colors.yellow('Enter memory: '),
+                choices: MEMORY,
+                default: MEMORY[0]
+            }
+        ]
+        global.appData.userInputs.memory = await UserInput.getFromUser(prompts)
+    }
+    static async getDiskQuota() {
+        const prompts = [
+            {
+                type: 'list',
+                name: 'val',
+                message: colors.yellow('Enter disk quota: '),
+                choices: DISK_QUOTA,
+                default: DISK_QUOTA[0]
+            }
+        ]
+        global.appData.userInputs.diskQuota = await UserInput.getFromUser(prompts)
+    }
+    static async getInstances() {
+        const prompts = [
+            {
+                type: 'list',
+                name: 'val',
+                message: colors.yellow('Enter number of instances: '),
+                choices: INSTANCES,
+                default: INSTANCES[0]
+            }
+        ]
+        global.appData.userInputs.instances = await UserInput.getFromUser(prompts)
+    }
     static async getNodeVersion() {
         const prompts = [
             {
@@ -134,6 +173,9 @@ class UserInput {
             await UserInput.getDescription()
             await UserInput.getAuthor()
             await UserInput.getEmail()
+            await UserInput.getMemory()
+            await UserInput.getDiskQuota()
+            await UserInput.getInstances()
             await UserInput.getNodeVersion()
             await UserInput.getNPMVersion()
             UserInput.done()

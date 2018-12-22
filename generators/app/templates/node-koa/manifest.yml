@@ -2,6 +2,8 @@
 applications:
 - name: {{PROJECT_NAME}}
   host: {{HOST}}
-  memory: 512MB
+  memory: {{MEMORY}}
+  disk_quota: {{DISK_SPACE}}
+  instances: {{INSTANCES}}
   health-check-type: http
   health-check-http-endpoint: /health
